@@ -7,12 +7,10 @@ spec:
     - name: web
       image: httpd:2.4
       ports:
-        - containerPort: 8080
+        - containerPort: 8081
     - name: api
-      image: python:3.11-slim
-      command: ["python", "/app/app.py"]
+      image: image-registry.openshift-image-registry.svc:5000/jaromir-sindlar-dev/api:latest
       ports:
         - containerPort: 5000
     - name: worker
-      image: python:3.11-slim
-      command: ["python", "/app/worker.py"]
+      image: image-registry.openshift-image-registry.svc:5000/jaromir-sindlar/worker:latest
